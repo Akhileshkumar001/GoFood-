@@ -1,0 +1,23 @@
+.order-form-container {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+}
+
+.order-form-container .form-label {
+    font-weight: bold;
+}
+
+.order-form-container .form-control {
+    border-radius: 0.25rem;
+    border: 1px solid #ced4da;
+}
+
+.order-form-container .btn {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.order-form-container .btn:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}

@@ -3,12 +3,16 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+// import Providers from './component/ContextReducer';
+import { FoodProvider } from './component/ContextReducer';
+import { CartProvider } from './component/ContextReducer';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <FoodProvider>
+    <CartProvider>
+      <App />
+    </CartProvider>
+  </FoodProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

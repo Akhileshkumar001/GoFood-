@@ -1,0 +1,12 @@
+/* Home.css */
+.main-content {
+    padding-top: 70px; /* Adjust this value based on the navbar height */
+  }
+  
+  /* Add responsive adjustments if needed */
+  @media (max-width: 992px) {
+    .main-content {
+      padding-top: 90px; /* Adjust this value if the navbar height changes in mobile view */
+    }
+  }
+  

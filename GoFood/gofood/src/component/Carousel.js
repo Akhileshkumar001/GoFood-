@@ -36,6 +36,7 @@
 import React from 'react';
 import './Carousel.css'; // Optional: If you have custom CSS for the carousel
 
+
 function Carousel() {
   return (
     <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">

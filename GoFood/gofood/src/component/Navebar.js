@@ -79,7 +79,7 @@ export default function Navbar() {
     navigate('/login')
   }
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-success">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-success sticky-top">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">GoFood</Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -87,13 +87,13 @@ export default function Navbar() {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
+           
               <Link className="nav-link active" aria-current="page" to="/">Home</Link>
-            </li>
+            
             {(localStorage.getItem('token')) ?
-              <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/">My Order</Link>
-              </li>
+              
+                <Link className="nav-link active" aria-current="page" to="/Order">My Order</Link>
+              
               : ""}
           </ul>
           {(!localStorage.getItem('token'))?
@@ -105,6 +105,7 @@ export default function Navbar() {
           <div style={{}}>
           
           <Link className="btn bg-white text-success max-2" to="/Cart">my Cart</Link>
+          <Link className="btn bg-white text-success max-2" to="/Search">Search</Link>
           <div className="btn bg-white   text-danger max-2" onClick={handleLogOut}>Log Out</div>
           </div> 
           }

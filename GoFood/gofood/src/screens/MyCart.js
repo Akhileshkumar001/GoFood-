@@ -1,8 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom'; 
 import { useCart, useDispatchCart } from '../component/ContextReducer';
 // import './Cart.css';
 
 const Cart = () => {
+    // const navigate=useNavigate()
     const cart = useCart();
     const dispatch = useDispatchCart();
 
@@ -15,6 +18,13 @@ const Cart = () => {
     };
 
     const totalPrice = cart.reduce((total, item) => total + item.price, 0);
+    // const handleProceedToCheckout = () => {
+    //     if (cart.length > 0) {
+    //         navigate('/Order'); // Navigate to Order component
+    //     } else {
+    //         alert("Your cart is empty.");
+    //     }
+    // };
 
     return (
         <div className="container mt-5">
@@ -53,7 +63,9 @@ const Cart = () => {
                                 >
                                     Clear Cart
                                 </button>
-                                <button className="btn btn-success">Proceed to Checkout</button>
+                                <Link to="/Order">
+                                    <button className="btn btn-success">Proceed to Checkout</button>
+                                </Link>
                             </div>
                         </div>
                     </div>
