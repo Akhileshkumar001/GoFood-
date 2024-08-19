@@ -33,6 +33,7 @@ const userRouter = require('./routes/authRoutes');
 // const foodDataRouter=require('./routes/foodRoute')
 const foodItem=require('./models/FoodDataM')
 const foodCategores=require('./models/FoodCatagRoute')
+const OrderItem=require('./routes/orderRoute')
 const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv').config();
@@ -244,6 +245,7 @@ mongoose
       })
       
 app.use('/api/v1/auth', userRouter);
+app.use('/api/v1/auth', OrderItem);
 // app.use('/api/v1/food',foodDataRouter)
 app.listen(port, () => {
     console.log(`Server is listening on port ${port}`);
