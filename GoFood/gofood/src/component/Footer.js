@@ -1,17 +1,52 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import './Footer.css';
 
 function Footer() {
     return (
-        <footer className="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-            <div className="col-md-4 d-flex align-items-center">
-                <Link to="/" className="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+        <div className='footerImg'>
+            <footer>
+                <div className="footer-parent">
+                    <ul className="footer-text">
+                        <li className="text-value">
+                            <Link to="#">About us</Link>
+                        </li>
+                        <li className="text-value">
+                            <Link to="#">ios App</Link>
+                        </li>
+                        <li className="text-value">
+                            <Link to="#">Android App</Link>
+                        </li>
+                    </ul>
+                    
+                    <ul className="social-link">
+                        <li>
+                            <Link to="https://www.facebook.com/foodyy.chaachaa">
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="https://www.instagram.com/foddy_chaachaa">
+                                
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="https://twitter.com/ChaaFoody">
+                                
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="#">
+                                
+                            </Link>
+                        </li>
+                    </ul>
+                </div>
 
-                </Link>
-                <span className=" text-muted">© 2024 GoFood, Inc</span>
-            </div>
-
-        </footer>
+                <p className="footer-p">
+                    Copyright © 2019 EVERYONE. All rights reserved.
+                </p>
+            </footer>
+        </div>
     )
 }
 

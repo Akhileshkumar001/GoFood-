@@ -4,7 +4,7 @@ import { loadStripe } from '@stripe/stripe-js';
 // import emptyCartImage from '../image'
 import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import Notification from '../component/Notification'; // Import the Notification component
-
+import './Order.css'
 const stripePromise = loadStripe('your-publishable-key-here'); // Replace with your Stripe public key
 
 const Order = () => {

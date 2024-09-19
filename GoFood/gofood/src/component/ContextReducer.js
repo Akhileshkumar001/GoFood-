@@ -101,6 +101,8 @@ export const FoodProvider = ({ children }) => {
 };
 
 // CartContext
+
+
 const CartStateContext = createContext();
 const CartDispatchContext = createContext();
 
@@ -130,7 +132,10 @@ const cartReducer = (state, action) => {
 };
 
 export const CartProvider = ({ children }) => {
-    const [state, dispatch] = useReducer(cartReducer, []);
+    // Initialize state from localStorage if available, otherwise use an empty array
+    const initialState = JSON.parse(localStorage.getItem('cart')) || [];
+
+    const [state, dispatch] = useReducer(cartReducer, initialState);
 
     return (
         <CartStateContext.Provider value={state}>

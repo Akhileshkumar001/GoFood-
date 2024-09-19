@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import './CardGrid.css';
+import styles from './CardGrid.module.css'; // Import CSS module
 import 'react-toastify/dist/ReactToastify.css';
 
 import { ToastContainer, toast } from 'react-toastify';
@@ -7,7 +7,7 @@ import { FoodContext } from './ContextReducer'; // Adjust import path if needed
 import { useCart, useDispatchCart } from './ContextReducer'; // Adjust import path if needed
 
 const Card = () => {
-  const { foodItems, foodCat, loading, error } = useContext(FoodContext); // Get foodCat from context
+  const { foodItems, foodCat, loading, error } = useContext(FoodContext);
   const dispatch = useDispatchCart();
   const cartData = useCart();
 
@@ -45,12 +45,6 @@ const Card = () => {
       });
       return;
     }
-      
-            // toast.success("item is added!", {
-            //   position: "top-center"
-            // });
-          
-    
 
     const finalPrice = item.options[0][size] * quantity;
 
@@ -62,29 +56,17 @@ const Card = () => {
       qty: quantity,
       size: size,
     });
-    // toast.success("Item added to cart!", {
-    //   position: "top-center",
-    //   autoClose: 2000, // Auto-close after 2 seconds
-    // });
+
+    toast.success("Item added to cart!", {
+      position: "top-center",
+      autoClose: 2000, // Auto-close after 2 seconds
+    });
 
     console.log("Item added to cart:", item.name, "Size:", size, "Qty:", quantity, "Price:", finalPrice);
   };
-  // alert("item selected !")
-//   toast.success("Item added to cart!", {
-//     position: "top-center",
-//     autoClose: 2000, // Auto-close after 2 seconds
-//   });
-//   const notify = () => {
-//     toast.success("item is added!", {
-//       position: "top-center"
-//     });
-//   }
 
   useEffect(() => {
     console.log("Updated cart data:", cartData);
-    
-    // notify()
-    
   }, [cartData]);
 
   if (loading) return <p>Loading...</p>;
@@ -94,12 +76,12 @@ const Card = () => {
   const categories = [...new Set(foodItems.map(item => item.CategoryName))];
 
   return (
-    <div className="card-grid">
+    <div className={styles.cardGrid}>
       {categories.map((category) => (
-        <div key={category} className="category-section">
+        <div key={category} className={styles.categorySection}>
           <h2>{category}</h2>
           <hr />
-          <div className="grid-container">
+          <div className={styles.gridContainer}>
             {foodItems
               .filter((item) => item.CategoryName === category)
               .map((item) => {
@@ -107,17 +89,17 @@ const Card = () => {
                 const selectedItemQty = selectedQty[item._id] || 1;
 
                 return (
-                  <div key={item._id} className="card">
-                    <img src={item.img} alt={item.name} className="card-img-top" />
-                    <div className="card-body">
-                      <h5 className="card-title">{item.name}</h5>
-                      <p className="card-text">{item.description}</p>
-                      <div className="card-options">
+                  <div key={item._id} className={styles.card}>
+                    <img src={item.img} alt={item.name} className={styles.cardImgTop} />
+                    <div className={styles.cardBody}>
+                      <h5 className={styles.cardTitle}>{item.name}</h5>
+                      <p className={styles.cardText}>{item.description}</p>
+                      <div className={styles.cardOptions}>
                         {item.options[0] && (
                           <>
                             {Object.keys(item.options[0]).map((size) =>
                               size !== '_id' ? (
-                                <div className="option" key={size}>
+                                <div className={styles.option} key={size}>
                                   <label>{size.charAt(0).toUpperCase() + size.slice(1)}:</label>
                                   <span>{item.options[0][size]}</span>
                                 </div>
@@ -126,9 +108,9 @@ const Card = () => {
                           </>
                         )}
                       </div>
-                      <div className="card-footer">
+                      <div className={styles.cardFooter}>
                         <select
-                          className='size-select'
+                          className={styles.sizeSelect}
                           value={selectedItemSize}
                           onChange={(e) => handleSizeChange(item._id, e.target.value)}
                         >
@@ -142,7 +124,7 @@ const Card = () => {
                           )}
                         </select>
                         <select
-                          className='quantity-select'
+                          className={styles.quantitySelect}
                           value={selectedItemQty}
                           onChange={(e) => handleQtyChange(item._id, e.target.value)}
                         >
@@ -159,7 +141,7 @@ const Card = () => {
                         Add to Cart
                       </button>
                     </div>
-                    <ToastContainer autoClose={1000}/>
+                    <ToastContainer autoClose={1000} />
                   </div>
                 );
               })}

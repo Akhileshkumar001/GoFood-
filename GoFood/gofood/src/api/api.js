@@ -40,3 +40,24 @@ export const loginAdmin = async ({ email, password }) => {
         console.log("error");
     }
 };
+
+export const submitContactForm = async ({ name, email, howDidYouFindUs, message, termsAccepted }) => {
+    try {
+        const reqUrl = `${backendUrl}/submit`; // Ensure the endpoint matches your backend route
+        console.log("Request URL:", reqUrl);
+        
+        const response = await axios.post(reqUrl, {
+            name,
+            email,
+            howDidYouFindUs,
+            message,
+            termsAccepted
+        });
+
+        return response;
+
+    } catch (error) {
+        console.log("Error in API call:", error);
+        throw error;
+    }
+};

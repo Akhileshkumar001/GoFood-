@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import { useNavigate } from 'react-router-dom'
-import styles from './login.module.css'
+import  './login.css'
 import { ToastContainer, toast } from 'react-toastify';
 import { loginAdmin } from '../api/api';
 import 'react-toastify/dist/ReactToastify.css'
@@ -58,19 +58,19 @@ const notify2 = () => {
   };
     
   return (
-    <div className={styles.app}>
-      <div className = {styles.parent}>
-        <div className={styles.main}>
-          <h1 className={styles.heading}>Login</h1>
-          <div className={styles.container}>
-          <div onClick={ () => navigate('/signUp')} className={styles.signup}>Sign Up</div>
-            <div className={styles.login}>Log In</div>
+    <div className="app">
+      <div className = "parent">
+        <div className="main">
+          <h1 className="heading">Login</h1>
+          <div className="container">
+          <div onClick={ () => navigate('/signUp')} className="signup">Sign Up</div>
+            <div className="login">Log In</div>
           </div>
-          <div className={styles.form}>
-            <div className={styles.field}>
-              <label className={styles.label}>Email</label>
+          <div className="form">
+            <div className="field">
+              <label className="label">Email</label>
               <input
-                  className={styles.input}
+                  className="input"
                   name="email"
                   style={{ color: formData.email === "Invalid Email" ? "red" : null }}
                   value={formData.email}
@@ -79,10 +79,10 @@ const notify2 = () => {
               ></input>
             </div>
 
-            <div className={styles.field}>
-              <label className={styles.label}>Password</label>
+            <div className="field">
+              <label className="label">Password</label>
               <input
-                  className={styles.input}
+                  className="input"
                   name="password"
                   style={{ color: formData.password === "wrong Password" ? "red" : null }}
                   value={formData.password}
@@ -90,11 +90,11 @@ const notify2 = () => {
                   type={"text"}
               ></input>
             </div>
-            <div className={styles.field}>
+            <div className="field">
               
               
               </div>
-            <button onClick={handleSubmit} className={styles.button}>
+            <button onClick={handleSubmit} className="button">
                 Login
             </button>
 
