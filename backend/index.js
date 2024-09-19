@@ -30,6 +30,7 @@
 
 const express = require('express');
 const userRouter = require('./routes/authRoutes');
+const Contectus=require('./routes/ContectusRoute')
 // const foodDataRouter=require('./routes/foodRoute')
 const foodItem=require('./models/FoodDataM')
 const foodCategores=require('./models/FoodCatagRoute')
@@ -246,6 +247,7 @@ mongoose
       
 app.use('/api/v1/auth', userRouter);
 app.use('/api/v1/auth', OrderItem);
+app.use('/api/v1/auth', Contectus);
 // app.use('/api/v1/food',foodDataRouter)
 app.listen(port, () => {
     console.log(`Server is listening on port ${port}`);
